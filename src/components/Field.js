@@ -5,7 +5,7 @@ const Field = () => {
 	// const contextType = useContext(LanguageContext)
 	// const text = contextType === 'english' ? 'Field' : 'Jagya'
 	const renderSubmit = (value) => {
-		return value === 'english' ? 'Field' : 'Khanu'
+		return value.language === 'english' ? 'Field' : 'Khanu'
 	}
 
 	return (

@@ -1,12 +1,21 @@
 import React from 'react'
+import LanguageContext from '../contexts/LanguageContext'
 
-const LanguageSelector = (props) => {
+const LanguageSelector = () => {
+	const renderData = (data) => {
+		return (
+			<div>
+				Select a language:
+				<i onClick={() => data.setLanguagae('english')} className="flag us" />
+				<i onClick={() => data.setLanguagae('hindi')} className="flag in" />
+			</div>
+		)
+	}
+
 	return (
-		<div>
-			Select a language:
-			<i onClick={() => props.setLanguage('english')} className="flag us" />
-			<i onClick={() => props.setLanguage('hindi')} className="flag in" />
-		</div>
+		<LanguageContext.Consumer>
+			{(data) => renderData(data)}
+		</LanguageContext.Consumer>
 	)
 }
 

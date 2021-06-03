@@ -1,22 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import UserCreate from './UserCreate'
-import LanguageContext from '../contexts/LanguageContext'
+import { LanguageStore } from '../contexts/LanguageContext'
 import ColorContext from '../contexts/ColorContext'
 import LanguageSelector from '../components/LanguageSelector'
 
 const App = () => {
-	const [language, setLanguage] = useState('english')
-
-	console.log(language)
 	const renderList = () => {
 		return (
 			<div className="ui container">
-				<LanguageSelector setLanguage={setLanguage} />
-				<ColorContext.Provider value="red">
-					<LanguageContext.Provider value={language}>
+				<LanguageStore>
+					<LanguageSelector />
+					<ColorContext.Provider value="red">
 						<UserCreate />
-					</LanguageContext.Provider>
-				</ColorContext.Provider>
+					</ColorContext.Provider>
+				</LanguageStore>
 			</div>
 		)
 	}
